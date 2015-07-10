@@ -12,13 +12,16 @@
 class Projekt: public Projektbestandteil {
 public:
 	Projekt(string name, string Beschreibung, double stundenSatz );
+	Projekt(string name, double stundenSatz = 0);
 	virtual ~Projekt();
 	void add(Projektbestandteil* projekbestandteil);
 	void remove(string name);
 	static const int maxParts = 20;
+	virtual double berechneKosten();
 	virtual double berechneKosten(double stundenSatz);
+	friend ostream& operator<<(ostream& o, Projekt* pp);
 private:
-	Projektbestandteil* findProjectPart(string name);
+	int findProjectPart(string name);
 	void deleteAllParts();
 	Projektbestandteil** teilTab;
 	double stundenSatz;

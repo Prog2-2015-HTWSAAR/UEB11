@@ -15,6 +15,7 @@ public:
 	Aufgabe(string name, string beschreibung, int aufwand);
 	virtual ~Aufgabe();
 	virtual double berechneKosten(double stundensatz);
+	friend ostream& operator<<(ostream& o, Aufgabe* ap);
 private:
 	int aufwand;
 };

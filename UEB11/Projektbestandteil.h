@@ -8,6 +8,7 @@
 #ifndef PROJEKTBESTANDTEIL_H_
 #define PROJEKTBESTANDTEIL_H_
 #include <string>
+#include <iostream>
 using namespace std;
 class Projektbestandteil {
 public:
