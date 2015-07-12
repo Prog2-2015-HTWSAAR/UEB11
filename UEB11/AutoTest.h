@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include "Projekt.h"
+
 using namespace std;
 
 class AutoTest
@@ -15,19 +17,16 @@ public:
 	static const int INPUT_ONE;
 	static const int HIGH_VALUE;
 	void automaticTest();
-	void createProject(string& name, string &beschreibung, int &wert);
-	void createProject(string& name, int &wert);
-	void createAufgabe(string& name, string &beschreibung, int &wert);
-	void createProdukt(string& name, string &beschreibung, int &wert);
+	void createProject(Projekt *project, string& name, string &beschreibung, int &wert);
+	void createProject(Projekt *project, string& name, int &wert);
+	void createAufgabe(Projekt *project, string& name, string &beschreibung, int &wert);
+	void createProdukt(Projekt *project, string& name, string &beschreibung, int &wert);
 	int readIntegerInput();
 	double readDoubleInput();
 	string readStringInput();
 	void clearInput();
 	
 	AutoTest();
-	~AutoTest();
-private:
- 	Projekt *project;
 };
 
 #endif
