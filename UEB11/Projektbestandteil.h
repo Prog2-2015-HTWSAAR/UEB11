@@ -9,10 +9,17 @@
 #define PROJEKTBESTANDTEIL_H_
 #include <string>
 #include <iostream>
+#include <stdexcept>
 using namespace std;
+	class ProjektException : public std::logic_error {
+	public:
+		ProjektException(const std::string& msg = "") : logic_error(msg) {}
+	};
 class Projektbestandteil {
 public:
-	Projektbestandteil(string name, string beschreibung) : name(name),beschreibung(beschreibung){};
+	Projektbestandteil(string name, string beschreibung) : name(name),beschreibung(beschreibung){
+
+	};
 	virtual ~Projektbestandteil(){};
 	const string& getBeschreibung() const {
 		return beschreibung;
@@ -29,7 +36,7 @@ public:
 	void setName(const string& name) {
 		this->name = name;
 	}
-	virtual double berechneKosten(double stundenSatz ) = 0;
+	virtual double berechneKosten(double stundensatz ) = 0;
 	virtual ostream& ausgeben(ostream& o) = 0;
 private:
 	string name;

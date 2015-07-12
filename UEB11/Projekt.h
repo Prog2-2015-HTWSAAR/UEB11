@@ -18,9 +18,11 @@ public:
 	void remove(string name);
 	static const int maxParts = 20;
 	virtual double berechneKosten();
-	virtual double berechneKosten(double stundenSatz);
+	virtual double berechneKosten(double stundensatz);
 	ostream& ausgeben(ostream& o);
 	friend ostream& operator<<(ostream& o, Projekt* pp);
+	static const char* meldungName;
+	static const char* meldungStundensatz;
 private:
 	int findProjectPart(string name);
 	void deleteAllParts();

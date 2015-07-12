@@ -7,7 +7,16 @@
 
 #include "Projekt.h"
 
-Projekt::Projekt(string name, string beschreibung, double stundenSatz) : Projektbestandteil(name, beschreibung), stundenSatz(stundenSatz){
+const char* Projekt::meldungName = "Der Name des Projekts darf nicht leer sein!";
+const char* Projekt::meldungStundensatz = "Der Stundensatz muss positiv sein!";
+
+Projekt::Projekt(string name, string beschreibung, double stundensatz) : Projektbestandteil(name, beschreibung), stundenSatz(stundenSatz){
+	if(name.empty()){
+		throw ProjektException(meldungName);
+	}
+	if(stundensatz <= 0){
+		throw ProjektException(meldungStundensatz);
+	}
 	teilTab = new Projektbestandteil*[maxParts];
 	teile = 0;
 }

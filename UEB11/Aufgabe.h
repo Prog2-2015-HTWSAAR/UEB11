@@ -16,6 +16,8 @@ public:
 	virtual ~Aufgabe();
 	virtual double berechneKosten(double stundensatz);
 	virtual ostream& ausgeben(ostream& o);
+	static const char* meldungName;
+	static const char* meldungAufwand;
 private:
 	int aufwand;
 };
