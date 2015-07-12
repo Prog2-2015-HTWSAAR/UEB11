@@ -12,7 +12,7 @@ Projekt::Projekt(string name, string beschreibung, double stundenSatz) : Projekt
 	teile = 0;
 }
 
-Projekt::Projekt(string name, double stundenSatz) : Projektbestandteil(name, ""), stundenSatz(stundenSatz){
+Projekt::Projekt(string name, double stundenSatz) : Projektbestandteil(name, "keine Beschreibung"), stundenSatz(stundenSatz){
 	teilTab = new Projektbestandteil*[maxParts];
 	teile = 0;
 }
