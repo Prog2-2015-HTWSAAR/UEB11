@@ -3,7 +3,7 @@
 
 #include "Projekt.h"
 #include "Aufgabe.h"
-#include "Produkt.h"
+#include "Produkt.h" 
 
 const int AutoTest::STD_ANSWER_VALUE = -1;
 const int AutoTest::ZERO_VALUE = 0;

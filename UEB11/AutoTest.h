@@ -27,7 +27,7 @@ public:
 	AutoTest();
 	~AutoTest();
 private:
-	Projekt *project;
+ 	Projekt *project;
 };
 
 #endif
