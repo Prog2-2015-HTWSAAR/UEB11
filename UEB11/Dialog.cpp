@@ -7,28 +7,13 @@
 
 Dialog::Dialog()
 {
+	Projekt *p = new Projekt("Testprojekt1", 100.0);
+	Aufgabe *entwurf = new Aufgabe("Entwurf", "Entwerfen des Produktes", 200);
+	Aufgabe *produktion = new Aufgabe("Produktion", "Eigentliches Produzieren", 100);
+	Produkt *prototyp = new Produkt("Prototyp", "...", 1000.0);
+	Projekt *teilprojekt = new Projekt("Baugruppe");
 }
-void mainDialog(){
-	bool firstRun = true;
-	Projekt *project, *teilprojekt;
-	Aufgabe *entwurf, *produktion;
-	Produkt *prototyp;
-	if (firstRun){
-		
-		firstRun = false;
-	}
-	else {
-
-	}
-}
-void createProject(Projekt* p){
-
+void Dialog::automaticTest(){
+	
 }
 
-void baseDialog();
-void projectDialog();
-void projectModificationDialog();
-
-Dialog::~Dialog()
-{
-}

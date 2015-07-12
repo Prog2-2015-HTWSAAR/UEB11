@@ -2,12 +2,12 @@
 class Dialog
 {
 public:
-	void mainDialog();
-	void baseDialog();
-	void createProject(Projekt* p);
-	void projectDialog();
-	void projectModificationDialog();
+	void automaticTest();
 	Dialog();
 	~Dialog();
+private:
+	Projekt *project, *teilprojekt;
+	Aufgabe *entwurf, *produktion;
+	Produkt *prototyp;
 };
 
