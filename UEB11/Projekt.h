@@ -19,6 +19,7 @@ public:
 	static const int maxParts = 20;
 	virtual double berechneKosten();
 	virtual double berechneKosten(double stundenSatz);
+	ostream& ausgeben(ostream& o);
 	friend ostream& operator<<(ostream& o, Projekt* pp);
 private:
 	int findProjectPart(string name);

@@ -56,11 +56,19 @@ double Projekt::berechneKosten() {
 double Projekt::berechneKosten(double stundenSatz){
 	return berechneKosten();
 }
- ostream& operator<<(ostream& o, Projekt* pp){
+ ostream& Projekt::ausgeben(ostream& o){
+	o << getName() << endl;
+	o << getBeschreibung() << endl;
+	for (int i = 0; i < teile; ++i) {
+		teilTab[i]->ausgeben(o);
+	}
+	return o;
+}
+ostream& operator<<(ostream& o, Projekt* pp){
 	o << pp->getName() << endl;
 	o << pp->getBeschreibung() << endl;
 	for (int i = 0; i < pp->teile; ++i) {
-		o << pp->teilTab[i];
+		pp->teilTab[i]->ausgeben(o);
 	}
 	return o;
 }

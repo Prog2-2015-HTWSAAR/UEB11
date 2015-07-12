@@ -19,8 +19,8 @@ double Produkt::berechneKosten(double stundenSatz){
 	return produktionskosten;
 }
 
-ostream& operator<<(ostream& o, Produkt* pp){
-	o << pp->getName() << endl;
-	o << pp->getBeschreibung() << endl;
+ostream& Produkt::ausgeben(ostream& o){
+	o << getName() << endl;
+	o << getBeschreibung() << endl;
 	return o;
 }

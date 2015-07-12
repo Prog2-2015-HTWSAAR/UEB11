@@ -18,8 +18,8 @@ double Aufgabe::berechneKosten(double stundenSatz){
 	return stundenSatz * aufwand;
 }
 
-ostream& operator<<(ostream& o, Aufgabe* ap){
-	o << ap->getName() << endl;
-	o << ap->getBeschreibung() << endl;
+ostream& Aufgabe::ausgeben(ostream& o){
+	o << getName() << endl;
+	o << getBeschreibung() << endl;
 	return o;
 }

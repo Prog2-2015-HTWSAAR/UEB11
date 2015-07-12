@@ -30,6 +30,7 @@ public:
 		this->name = name;
 	}
 	virtual double berechneKosten(double stundenSatz ) = 0;
+	virtual ostream& ausgeben(ostream& o) = 0;
 private:
 	string name;
 	string beschreibung;

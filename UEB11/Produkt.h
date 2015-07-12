@@ -15,7 +15,7 @@ public:
 	Produkt(string name, string beschreibung, double produktionskosten);
 	virtual ~Produkt();
 	virtual double berechneKosten(double stundenSatz);
-	friend ostream& operator<<(ostream&, Produkt* pp);
+	ostream& ausgeben(ostream& o);
 private:
 	double produktionskosten;
 };
