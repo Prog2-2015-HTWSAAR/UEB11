@@ -15,12 +15,15 @@
 #include "Projekt.h"
 #include "Aufgabe.h"
 #include "Produkt.h"
+#include "ProjektDialog.h"
 /**
 * @brief Main Function
 */
 int main(){
 	AutoTest autoT;
 	autoT.automaticTest();
+	ProjektDialog projektDialog;
+	projektDialog.startTestDialog();
 	//// Projektobjekt konstruieren mit Name und weiteren Paremetern
 	//Projekt *p = new Projekt("Testprojekt1", 100.0);
 	//// Aufgaben konstruieren mit Name, Beschreibung und Aufwand

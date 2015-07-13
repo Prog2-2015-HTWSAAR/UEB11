@@ -11,8 +11,8 @@
 #include "Projektbestandteil.h"
 class Projekt: public Projektbestandteil {
 public:
-	Projekt(string name, string Beschreibung, double stundenSatz );
-	Projekt(string name, double stundenSatz = 0);
+	Projekt(string name, string Beschreibung, double stundensatz );
+	Projekt(string name, double stundensatz = 0);
 	virtual ~Projekt();
 	void add(Projektbestandteil* projekbestandteil);
 	void remove(string name);
@@ -23,11 +23,12 @@ public:
 	friend ostream& operator<<(ostream& o, Projekt* pp);
 	static const char* meldungName;
 	static const char* meldungStundensatz;
+	static const char* meldungPojektVoll;
 private:
 	int findProjectPart(string name);
 	void deleteAllParts();
 	Projektbestandteil** teilTab;
-	double stundenSatz;
+	double stundensatz;
 	int teile;
 };
 

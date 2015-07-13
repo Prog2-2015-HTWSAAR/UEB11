@@ -26,7 +26,8 @@ double Produkt::berechneKosten(double stundenSatz){
 }
 
 ostream& Produkt::ausgeben(ostream& o){
-	o << getName() << endl;
+	o << "Produkt: " << getName() << endl;
 	o << getBeschreibung() << endl;
+	o << "Kosten: " << produktionskosten << " Euro" << endl;
 	return o;
 }

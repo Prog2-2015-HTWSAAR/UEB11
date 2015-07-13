@@ -25,7 +25,8 @@ double Aufgabe::berechneKosten(double stundensatz){
 }
 
 ostream& Aufgabe::ausgeben(ostream& o){
-	o << getName() << endl;
+	o << "Aufgabe: "<< getName() << endl;
 	o << getBeschreibung() << endl;
+	o << "Aufwand: " << aufwand << " Stunden" << endl;
 	return o;
 }
