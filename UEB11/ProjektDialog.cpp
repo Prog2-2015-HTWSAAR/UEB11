@@ -1,8 +1,10 @@
-/*
+/**
+ * compile: g++ -c -Wall -pedantic *.cpp
+ * compile: g++ -o ueb11 *.o
  * ProjektDialog.cpp
  *
- *  Created on: 13.07.2015
- *      Author: Simon
+ *  @date 13.07.2015
+ *  @author Simon Bastian & Andreas Schreiner
  */
 
 #include "ProjektDialog.h"

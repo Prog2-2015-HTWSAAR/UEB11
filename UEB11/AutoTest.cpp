@@ -1,3 +1,10 @@
+/**
+ * compile: g++ -c -Wall -pedantic *.cpp
+ * compile: g++ -o ueb11 *.o
+ * @file AutoTest.cpp
+ * @date 11.07.2015
+ * @author Simon Bastian & Andreas Schreiner
+ */
 #include "AutoTest.h"
 #include <iostream>
 #include "Projekt.h"

@@ -1,3 +1,10 @@
+/**
+ * compile: g++ -c -Wall -pedantic *.cpp
+ * compile: g++ -o ueb11 *.o
+ * @file Basisdialog.h
+ * @date 13.07.2015
+ * @author Simon Bastian & Andreas Schreiner
+ */
 #ifndef BASISDIALOG_H_
 #define BASISDIALOG_H_
 #include "AutoTest.h"

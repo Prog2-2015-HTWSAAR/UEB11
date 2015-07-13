@@ -1,3 +1,10 @@
+/**
+ * compile: g++ -c -Wall -pedantic *.cpp
+ * compile: g++ -o ueb11 *.o
+ * @file Autotest.h
+ * @date 11.07.2015
+ * @author Simon Bastian & Andreas Schreiner
+ */
 #ifndef AUTOTEST_H_
 #define AUTOTEST_H_
 #include <iostream>

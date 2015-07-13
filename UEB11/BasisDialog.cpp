@@ -1,3 +1,10 @@
+/**
+ * compile: g++ -c -Wall -pedantic *.cpp
+ * compile: g++ -o ueb11 *.o
+ * @file Basisdialog.cpp
+ * @date 13.07.2015
+ * @author Simon Bastian & Andreas Schreiner
+ */
 #include "BasisDialog.h"
 const int BasisDialog::STD_ANSWER_VALUE = -1;
 const int BasisDialog::ZERO_VALUE = 0;

@@ -1,8 +1,10 @@
-/*
- * Aufgabe.h
+/**
+ * compile: g++ -c -Wall -pedantic *.cpp
+ * compile: g++ -o ueb11 *.o
+ * @file Aufgabe.h
  *
- *  Created on: 10.07.2015
- *      Author: sbastian
+ * @date 10.07.2015
+ * @author Simon Bastian & Andreas Schreiner
  */
 
 #ifndef AUFGABE_H_

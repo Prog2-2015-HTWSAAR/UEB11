@@ -1,4 +1,6 @@
 /**
+ * compile: g++ -c -Wall -pedantic *.cpp
+ * compile: g++ -o ueb11 *.o
  * @file Projektbestandteil.h
  *
  * @date 10.07.2015

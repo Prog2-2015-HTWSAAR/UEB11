@@ -1,8 +1,10 @@
-/*
- * Projekt.cpp
+/**
+ * compile: g++ -c -Wall -pedantic *.cpp
+ * compile: g++ -o ueb11 *.o
+ * @file Projekt.cpp
  *
- *  Created on: 10.07.2015
- *      Author: sbastian
+ * @date 10.07.2015
+ * author sbastian
  */
 
 #include "Projekt.h"
