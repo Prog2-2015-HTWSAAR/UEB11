@@ -105,7 +105,7 @@ void ProjektDialog::addProjekt(Projekt* projekt){
 	double stundensatz;
 	cout << PHRASE_NAME;
 	name = readStringInput();
-	cout << PHRASE_BESCHREIBUNG << endl;
+	cout << PHRASE_BESCHREIBUNG;
 	beschreibung = readStringInput();
 	cout << PHRASE_STUNDENSATZ;
 	stundensatz = readDoubleInput();
@@ -120,7 +120,7 @@ void ProjektDialog::addProdukt(Projekt* projekt){
 	Produkt* produkt = NULL;
 	cout << PHRASE_NAME;
 	name = readStringInput();
-	cout << PHRASE_BESCHREIBUNG << endl;
+	cout << PHRASE_BESCHREIBUNG;
 	beschreibung = readStringInput();
 	cout << PHRASE_PRODUKTIONSKOSTEN;
 	produktionskosten = readDoubleInput();
@@ -134,7 +134,7 @@ void ProjektDialog::addAufgabe(Projekt* projekt){
 	Aufgabe* aufgabe = NULL;
 	cout << PHRASE_NAME;
 	name = readStringInput();
-	cout << PHRASE_BESCHREIBUNG << endl;
+	cout << PHRASE_BESCHREIBUNG;
 	beschreibung = readStringInput();
 	cout << PHRASE_AUFWAND;
 	aufwand = readDoubleInput();
