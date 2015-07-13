@@ -25,7 +25,8 @@ public:
 	friend ostream& operator<<(ostream& o, Projekt* pp);
 	static const char* meldungName;
 	static const char* meldungStundensatz;
-	static const char* meldungPojektVoll;
+	static const char* meldungProjektVoll;
+	static const char* meldungNameVorhanden;
 private:
 	int findProjectPart(string name);
 	void deleteAllParts();

@@ -11,7 +11,8 @@
 
 const char* Projekt::meldungName = "Der Name des Projekts darf nicht leer sein!";
 const char* Projekt::meldungStundensatz = "Der Stundensatz muss positiv sein!";
-const char* Projekt::meldungPojektVoll = "Die maximale Anzahl an Projektbestandteilen ist erreicht!";
+const char* Projekt::meldungProjektVoll = "Die maximale Anzahl an Projektbestandteilen ist erreicht!";
+const char* Projekt::meldungNameVorhanden = "Ein Projektbestandteil mit dem Namen ist bereits vorhanden!";
 
 Projekt::Projekt(string name, string beschreibung, double stundensatz) : Projektbestandteil(name, beschreibung), stundensatz(stundensatz){
 	if(name.empty()){
@@ -34,10 +35,14 @@ Projekt::~Projekt() {
 }
 
 void Projekt::add(Projektbestandteil* pbp){
+	int i = findProjectPart(pbp->getName());
+	if(i >= 0){
+		throw ProjektException(meldungNameVorhanden);
+	}
 	if(teile < maxParts){
 		teilTab[teile++] = pbp;
 	}else{
-		throw ProjektException(meldungPojektVoll);
+		throw ProjektException(meldungProjektVoll);
 	}
 }
 
