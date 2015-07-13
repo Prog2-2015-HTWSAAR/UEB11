@@ -66,10 +66,10 @@ void Projekt::deleteAllParts(){
 	teile = 0;
 }
 int Projekt::findProjectPart(string name){
-	Projektbestandteil* teil = NULL;
+	Projektbestandteil* pbp = NULL;
 	for (int i = 0; i < teile; ++i) {
-		teil = teilTab[i];
-		if(name.compare(teil->getName()) == 0){
+		pbp = teilTab[i];
+		if(name.compare(pbp->getName()) == 0){
 			return i;
 		}
 	}
