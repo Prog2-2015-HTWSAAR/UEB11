@@ -18,8 +18,20 @@ public:
 	static const string OPTION_EXIT;
 	static const string STANDARD_CHOICE_PHRASE;
 	void runBasisDialog();
+	/**
+	* @brief readIntegerInput
+	* @details fkt zum lesen eines integers
+	*/
 	int readIntegerInput();
+	/**
+	* @brief readDoubleInput
+	* @details fkt zum lesen eines double
+	*/
 	double readDoubleInput();
+	/**
+	* @brief readStringInput
+	* @details fkt zum leeren der eingabe
+	*/
 	void clearInput();
 	BasisDialog();
 };
