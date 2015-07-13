@@ -16,10 +16,7 @@ public:
 		REMOVE_SUBPROJECT, REMOVE_AUFGABE, REMOVE_PRODUCT ,REMOVE_PROJECT
 	};
 
-	static const int STD_ANSWER_VALUE;
-	static const int ZERO_VALUE;
-	static const int INPUT_ONE;
-	static const int HIGH_VALUE;
+
 	static const int TEST_VALUE_ONE;
 	static const int TEST_VALUE_TWO;
 	static const int TEST_VALUE_ZERO;
@@ -41,10 +38,7 @@ public:
 	void createProject(Projekt *project, const string& name, const int &wert);
 	void createAufgabe(Projekt *project, const string& name, const string &beschreibung, const int &wert);
 	void createProdukt(Projekt *project, const string& name, const string &beschreibung, const int &wert);
-	int readIntegerInput();
-	double readDoubleInput();
-	string readStringInput();
-	void clearInput();
+
 	
 	AutoTest();
 };

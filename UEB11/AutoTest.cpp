@@ -1,14 +1,10 @@
 #include "AutoTest.h"
 #include <iostream>
-#include <math.h>
 #include "Projekt.h"
 #include "Aufgabe.h"
 #include "Produkt.h" 
 
-const int AutoTest::STD_ANSWER_VALUE = -1;
-const int AutoTest::ZERO_VALUE = 0;
-const int AutoTest::INPUT_ONE = 1;
-const int AutoTest::HIGH_VALUE = 1000;
+
 const int AutoTest::TEST_VALUE_ONE = 100;
 const int AutoTest::TEST_VALUE_TWO = 200;
 const int AutoTest::TEST_VALUE_ZERO = 0;
@@ -102,34 +98,6 @@ void AutoTest::createAufgabe(Projekt *project, const string &name, const string 
 void AutoTest::createProdukt(Projekt *project, const string &name, const string &beschreibung, const int &wert){
 	Produkt *prod = new Produkt(name, beschreibung, wert);
 	project->add(prod);
-}
-
-int AutoTest::readIntegerInput(){
-	double number = readDoubleInput();
-	if (!(fmod(number, INPUT_ONE) == ZERO_VALUE)){
-		number = STD_ANSWER_VALUE;
-	}
-	return (int)number;
-}
-double AutoTest::readDoubleInput(){
-	double number;
-	if (cin >> number){
-	}
-	else {
-		number = STD_ANSWER_VALUE;
-	}
-	clearInput();
-	return number;
-}
-string AutoTest::readStringInput(){
-	string input;
-	cin >> input;
-	clearInput();
-	return input;
-}
-void AutoTest::clearInput(){
-	cin.clear();
-	cin.ignore(HIGH_VALUE, '\n');
 }
 
 

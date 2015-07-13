@@ -6,7 +6,10 @@
  */
 
 #include "ProjektDialog.h"
-
+const int ProjektDialog::STD_ANSWER_VALUE = -1;
+const int ProjektDialog::ZERO_VALUE = 0;
+const int ProjektDialog::INPUT_ONE = 1;
+const int ProjektDialog::HIGH_VALUE = 1000;
 ProjektDialog::ProjektDialog() {
 	// Nothing to do here
 
@@ -116,4 +119,32 @@ void ProjektDialog::removePart(Projekt* projekt){
 	cout << "Name: ";
 	cin >> name;
 	projekt->remove(name);
+}
+
+int ProjektDialog::readIntegerInput(){
+	double number = readDoubleInput();
+	if (!(fmod(number, INPUT_ONE) == ZERO_VALUE)){
+		number = STD_ANSWER_VALUE;
+	}
+	return (int)number;
+}
+double ProjektDialog::readDoubleInput(){
+	double number;
+	if (cin >> number){
+	}
+	else {
+		number = STD_ANSWER_VALUE;
+	}
+	clearInput();
+	return number;
+}
+string ProjektDialog::readStringInput(){
+	string input;
+	cin >> input;
+	clearInput();
+	return input;
+}
+void ProjektDialog::clearInput(){
+	cin.clear();
+	cin.ignore(HIGH_VALUE, '\n');
 }
