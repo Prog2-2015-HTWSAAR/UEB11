@@ -10,14 +10,26 @@ const int ProjektDialog::STD_ANSWER_VALUE = -1;
 const int ProjektDialog::ZERO_VALUE = 0;
 const int ProjektDialog::INPUT_ONE = 1;
 const int ProjektDialog::HIGH_VALUE = 1000;
-ProjektDialog::ProjektDialog() {
-	// Nothing to do here
+const string ProjektDialog::SEPERATOR = "-------------------------------";
+const string ProjektDialog::OPTION_TEILPROJEKT = "(1) TeilProjekt erstellen";
+const string ProjektDialog::OPTION_PRODUKT_ERSTELLEN = "(2) Produkt erstellen";
+const string ProjektDialog::OPTION_AUFGABE_ERSTELLEN = "(3) Aufgabe erstellen";
+const string ProjektDialog::OPTION_PROJEKTBESTANTEIL_ENTFERNEN = "(4) Projektbestanteil entfernen";
+const string ProjektDialog::PROJEKTKOSTEN_BERECHNEN = "(5) Projektkosten berechnen";
+const string ProjektDialog::OPTION_BACK_TO_BASE_MENUE = "(0) Zurueck zur Auswahl";
+const string ProjektDialog::STANDARD_CHOICE_PHRASE = "Waehlen sie eine Option : ";
+const string ProjektDialog::PHRASE_NAME = "Name: ";
+const string ProjektDialog::PHRASE_BESCHREIBUNG = "Beschreibung: ";
+const string ProjektDialog::PHRASE_STUNDENSATZ = "Stundensatz: ";
+const string ProjektDialog::PHRASE_PROJEKTKOSTEN = "Projektkosten: ";
+const string ProjektDialog::PHRASE_PRODUKTIONSKOSTEN = "Produktionskosten: ";
+const string ProjektDialog::PHRASE_AUFWAND = "Aufwand: ";
 
-}
+const char* ProjektDialog::ERRORPHRASE = "Fehler: ";
+const char* ProjektDialog::INPUTERRORPHRASE = "-> FEHLERHAFTE EINGABE <-";
 
-ProjektDialog::~ProjektDialog() {
-	// Nothing to do here
-}
+ProjektDialog::ProjektDialog() {}
+ProjektDialog::~ProjektDialog() {}
 
 
 Projekt* ProjektDialog::createProjekt(string name, string beschreibung, double stundensatz){
@@ -31,19 +43,33 @@ Aufgabe* ProjektDialog::createAufgabe(string name, string beschreibung, double a
 }
 
 void ProjektDialog::startTestDialog(){
-	Projekt* projekt = createProjekt("TestProjekt", "Tolle Beschreibung", 10);
-	editProjektDialog(projekt);
+	string name, discription;
+	int satz;
+	cout << SEPERATOR << endl << PHRASE_NAME;
+	name = readStringInput();
+	cout << PHRASE_BESCHREIBUNG;
+	discription = readStringInput();
+	cout << PHRASE_STUNDENSATZ;
+	satz = readIntegerInput();
+	try{
+		Projekt* projekt = createProjekt(name, discription, satz);
+		editProjektDialog(projekt);
+	}
+	catch (ProjektException& e){
+		cout << ERRORPHRASE << e.what() << endl;
+	}
 }
 void ProjektDialog::editProjektDialog(Projekt* projekt){
 	int answer = -1;
 	do {
-		cout << endl << "------------------------------" << endl
-			<< projekt << "------------------------------" << endl;
-		cout << "(1) TeilProjekt erstellen" << endl << "(2) Produkt erstellen" << endl
-			<< "(3) Aufgabe erstellen" << endl <<"(4) Projektbestanteil entfernen" << endl
-			<< "(5) Projektkosten berechnen" << endl << "(0) Ende" << endl;
-		cin >> answer;
-		switch (answer) {
+		try {
+			cout << endl << SEPERATOR << endl
+				<< projekt << SEPERATOR << endl;
+			cout << OPTION_TEILPROJEKT << endl << OPTION_PRODUKT_ERSTELLEN << endl
+				<< OPTION_AUFGABE_ERSTELLEN << endl << OPTION_PROJEKTBESTANTEIL_ENTFERNEN << endl
+				<< PROJEKTKOSTEN_BERECHNEN << endl << OPTION_BACK_TO_BASE_MENUE << endl << STANDARD_CHOICE_PHRASE;
+			answer = readIntegerInput();
+			switch (answer) {
 			case ADDPROJEKT:
 				addProjekt(projekt);
 				break;
@@ -57,67 +83,68 @@ void ProjektDialog::editProjektDialog(Projekt* projekt){
 				removePart(projekt);
 				break;
 			case CALCCOSTS:
-				cout << "Projektkosten: " << projekt->berechneKosten() << endl;
+				cout << PHRASE_PROJEKTKOSTEN << projekt->berechneKosten() << endl;
 				break;
 			case EXIT:
 				break;
 			default:
-				cout << "Fehlerhafte Eingabe!" << endl;
+				cout << INPUTERRORPHRASE << endl;
 				answer = -1;
 				break;
+			}
+		}
+		catch (ProjektException& e){
+			cout << ERRORPHRASE << e.what() << endl;
 		}
 	} while (answer != EXIT);
 }
 
 void ProjektDialog::addProjekt(Projekt* projekt){
-	string name = "";
-	string beschreibung = "";
+	string name, beschreibung;
 	Projekt* neuProjekt = NULL;
-	double stundensatz = 0.0;
-	cout << "Name: ";
-	cin >> name;
-	cout << "Beschreibung:" << endl;
-	cin >> beschreibung;
-	cout << "Stundensatz: ";
-	cin >> stundensatz;
+	double stundensatz;
+	cout << PHRASE_NAME;
+	name = readStringInput();
+	cout << PHRASE_BESCHREIBUNG << endl;
+	beschreibung = readStringInput();
+	cout << PHRASE_STUNDENSATZ;
+	stundensatz = readDoubleInput();
 	neuProjekt = createProjekt(name,beschreibung,stundensatz);
 	projekt->add(neuProjekt);
 	editProjektDialog(neuProjekt);
 }
 
 void ProjektDialog::addProdukt(Projekt* projekt){
-	string name = "";
-	string beschreibung = "";
-	double produktionskosten = 0.0;
+	string name, beschreibung;
+	double produktionskosten;
 	Produkt* produkt = NULL;
-	cout << "Name: ";
-	cin >> name;
-	cout << "Beschreibung:" << endl;
-	cin >> beschreibung;
-	cout << "Produktionskosten: ";
-	cin >> produktionskosten;
+	cout << PHRASE_NAME;
+	name = readStringInput();
+	cout << PHRASE_BESCHREIBUNG << endl;
+	beschreibung = readStringInput();
+	cout << PHRASE_PRODUKTIONSKOSTEN;
+	produktionskosten = readDoubleInput();
 	produkt = createProdukt(name, beschreibung, produktionskosten);
 	projekt->add(produkt);
 }
 
 void ProjektDialog::addAufgabe(Projekt* projekt){
-	string name = "";
-	string beschreibung = "";
-	double aufwand = 0.0;
+	string name, beschreibung;
+	double aufwand;
 	Aufgabe* aufgabe = NULL;
-	cout << "Name: ";
-	cin >> name;
-	cout << "Beschreibung:" << endl;
-	cin >> beschreibung;
-	cout << "Aufwand: ";
-	cin >> aufwand;
+	cout << PHRASE_NAME;
+	name = readStringInput();
+	cout << PHRASE_BESCHREIBUNG << endl;
+	beschreibung = readStringInput();
+	cout << PHRASE_AUFWAND;
+	aufwand = readDoubleInput();
 	aufgabe = createAufgabe(name, beschreibung, aufwand);
 	projekt->add(aufgabe);
 }
 void ProjektDialog::removePart(Projekt* projekt){
-	string name = "";
-	cout << "Name: ";
-	cin >> name;
+	string name;
+	cout << PHRASE_NAME;
+	name = readStringInput();
 	projekt->remove(name);
 }
 
