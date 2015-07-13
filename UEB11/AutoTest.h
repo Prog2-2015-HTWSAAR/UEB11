@@ -33,13 +33,51 @@ public:
 	static const string TEST_DISCRIPTION_FOUR;
 	static const string TEST_DISCRIPTION_EMPTY;
 	static const char* ERRORPHRASE;
+	/**
+	* @brief automaticTest
+	* @details Testfunktion
+	*/
 	void automaticTest();
+	/**
+	* @brief createProject
+	* @details Fkt zur Erzeugung eines Projekts
+	* @param *project
+	* @param name
+	* @param beschreibung
+	* @param wert
+	*/
 	void createProject(Projekt *project, const string& name, const string &beschreibung, const int &wert);
+	/**
+	* @brief createProject
+	* @details Fkt zur Erzeugung eines Projekts
+	* @param *project
+	* @param name
+	* @param wert
+	*/
 	void createProject(Projekt *project, const string& name, const int &wert);
+	/**
+	* @brief createAufgabe
+	* @details Fkt zur Erzeugung eines Aufgabe
+	* @param *project
+	* @param name
+	* @param beschreibung
+	* @param wert
+	*/
 	void createAufgabe(Projekt *project, const string& name, const string &beschreibung, const int &wert);
+	/**
+	* @brief createProdukt
+	* @details Fkt zur Erzeugung eines Produkt
+	* @param *project
+	* @param name
+	* @param beschreibung
+	* @param wert
+	*/
 	void createProdukt(Projekt *project, const string& name, const string &beschreibung, const int &wert);
 
-	
+	/**
+	* @brief AutoTest
+	* @details konstruktor
+	*/
 	AutoTest();
 };
 

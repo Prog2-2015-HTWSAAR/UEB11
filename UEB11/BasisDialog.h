@@ -17,6 +17,10 @@ public:
 	static const string OPTION_AUTO_TEST;
 	static const string OPTION_EXIT;
 	static const string STANDARD_CHOICE_PHRASE;
+	/**
+	* @brief runBasisDialog
+	* @details basis dialog
+	*/
 	void runBasisDialog();
 	/**
 	* @brief readIntegerInput
@@ -33,6 +37,10 @@ public:
 	* @details fkt zum leeren der eingabe
 	*/
 	void clearInput();
+	/**
+	* @brief BasisDialog
+	* @details Konstruktor
+	*/
 	BasisDialog();
 };
 #endif
